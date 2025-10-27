@@ -1,0 +1,19 @@
+:root {
+  --accent: #2563eb;
+  --accent-light: #dbeafe;
+  --bg: #f9fafb;
+  --text: #111827;
+  --muted: #6b7280;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; }
+body { margin:0; font-family: "Inter", system-ui, sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+a { text-decoration:none; color:var(--accent); }
+nav { background: var(--card); padding:12px 24px; display:flex; gap:20px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+nav a { font-weight:600; }
+nav a.active { border-bottom:2px solid var(--accent); }
+.container { max-width:1000px; margin:40px auto; padding:20px; }
+.card { background:var(--card); padding:16px 20px; border-radius:12px; margin-bottom:20px; box-shadow:0 4px 16px rgba(0,0,0,0.06); }
+.card h3 { margin-top:0; color:var(--accent); }
+.card ul { padding-left:20px; color:var(--muted); }
