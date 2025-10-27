@@ -1,37 +1,324 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Fabian Fürst – Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fabian Fürst – Schüler & Chemieinteressierter in Louisenlund</title>
+  <meta name="description" content="Persönliches Portfolio und Lebenslauf von Fabian Fürst, Schüler an der Stiftung Louisenlund mit Fokus auf Chemie und Materialwissenschaften." />
+  <meta name="author" content="Fabian Fürst" />
+
+  <style>
+    :root {
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --bg: #f9fafb;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --accent: #60a5fa;
+        --accent-light: #1e3a8a;
+        --bg: #111827;
+        --text: #f3f4f6;
+        --muted: #9ca3af;
+        --card: #1f2937;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 32px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      transition: background 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent-light);
+    }
+
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    h1 { margin: 0; font-size: 1.6rem; }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+
+    nav {
+      margin-top: 24px;
+      position: sticky;
+      top: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav a.active, nav a:hover {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    main section { margin-bottom: 32px; }
+
+    section h2 {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 1.2rem;
+      border-bottom: 2px solid var(--accent-light);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .project-card, .education-item {
+      background: var(--bg);
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+      margin-top: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover, .education-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+
+    .project-card h3 { margin-top: 0; color: var(--accent); font-size: 1.1rem; }
+    .project-card ul { padding-left: 20px; margin: 8px 0 0; color: var(--muted); font-size: 0.95rem; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 12px; }
+
+    .skill-category { margin-bottom: 18px; }
+    .skill-category h3 { color: var(--accent); margin-bottom: 6px; font-size: 1.05rem; }
+    .skill-category ul { margin: 0; padding-left: 22px; list-style-type: square; color: var(--muted); }
+
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 8px;
+      transition: opacity 0.3s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn.outline { background: transparent; border: 1px solid rgba(0,0,0,0.08); color: var(--text); }
+
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; padding: 20px; }
+      header { flex-direction: row; text-align: left; }
+      nav ul { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+      nav { position: static; }
+    }
+
+    @media print { nav, .btn { display: none; } body { background: white; color: black; } }
+
+  </style>
 </head>
+
 <body>
+  <div class="container">
+    <aside>
+      <header>
+        <div class="avatar">
+          <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Porträt von Fabian Fürst">
+        </div>
+        <div>
+          <h1>Fabian Fürst</h1>
+          <div class="muted">Anorganische Chemie · Stiftung Louisenlund · Schleswig-Holstein</div>
+          <div class="muted"><a href="mailto:fabian.fuerst14@gmail.com">fabian.fuerst14@gmail.com</a></div>
+        </div>
+      </header>
 
-<nav>
-  <a href="index.html" class="active">Über mich</a>
-  <a href="projects.html">Projekte</a>
-  <a href="blog.html">Blog</a>
-</nav>
+      <nav aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="#about" class="navlink active">Über mich</a></li>
+          <li><a href="#education" class="navlink">Ausbildung</a></li>
+          <li><a href="#projects" class="navlink">Projekte</a></li>
+          <li><a href="#skills" class="navlink">Skills</a></li>
+          <li><a href="#contact" class="navlink">Kontakt</a></li>
+        </ul>
+      </nav>
 
-<div class="container">
-  <h1>Fabian Fürst</h1>
-  <p>Schüler an der Stiftung Louisenlund, Schwerpunkt Anorganische Chemie.</p>
+      <a class="btn" id="printBtn">Als PDF speichern</a>
+    </aside>
 
-  <div class="card">
-    <h3>Über mich</h3>
-    <p>Ich interessiere mich für Kathodenmaterialien und experimentelle Chemie. Neben der Schule programmiere ich kleine Projekte in Python und LaTeX.</p>
+    <main>
+      <!-- Über mich -->
+      <section id="about">
+        <h2>Über mich</h2>
+        <p>Ich bin <strong>Fabian Fürst</strong>, Schüler an der Stiftung Louisenlund in Schleswig-Holstein. 
+        Mein Interesse gilt der <strong>Anorganischen Chemie</strong>, insbesondere der Entwicklung und Analyse von Kathodenaktivmaterialien für Akkumulatoren.</p>
+        <p>Ich arbeite gerne experimentell und analytisch und beschäftige mich mit der Synthese und Untersuchung neuer chemischer Materialien.
+        Neben der Schule programmiere ich kleinere Anwendungen und interessiere mich für wissenschaftliche Visualisierungen mit <strong>Python</strong> und <strong>LaTeX</strong>.</p>
+        <blockquote style="border-left:4px solid var(--accent);padding-left:12px;color:var(--muted);font-style:italic;">
+          "Wissenschaft beginnt mit Neugier – und wächst mit Präzision."
+        </blockquote>
+      </section>
+
+      <!-- Ausbildung -->
+      <section id="education">
+        <h2>Ausbildung</h2>
+        <div class="education-item">
+          <strong>Mittlerer Schulabschluss (MSA)</strong><br>
+          <span class="muted">Stiftung Louisenlund – 2023</span>
+          <p>Abschluss mit einem Durchschnitt von 2,46. Abschlussarbeit zum Thema <em>„Schwarze Löcher“</em>.</p>
+        </div>
+      </section>
+
+      <!-- Projekte -->
+      <section id="projects">
+        <h2>Projekte</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Peroxidische Natrium-Alumo-Silikate</h3>
+            <p>Forschung zu Kathodenaktivmaterialien für Alkali-Ionen-Akkumulatoren mit Fokus auf peroxidische Strukturen und Leitfähigkeiten.</p>
+            <ul>
+              <li>Verwendung von Röntgenstrukturanalyse</li>
+              <li>Optimierung der Syntheseparameter</li>
+              <li>Vergleichende Leitfähigkeitsmessungen</li>
+            </ul>
+            <a href="#" class="btn outline">Projekt ansehen</a>
+          </article>
+
+          <article class="project-card">
+            <h3>Peroxidbildende Bisalze & Metallfluoride</h3>
+            <p>Untersuchung neuer Hybrid-Ionen-Systeme basierend auf Sulfat-, Phosphat- und Fluorid-Verbindungen.</p>
+            <ul>
+              <li>Experimentelle Analyse von Bisalzen</li>
+              <li>Stabilitätsuntersuchungen unter Temperaturschwankungen</li>
+              <li>Dokumentation in LaTeX</li>
+            </ul>
+            <a href="#" class="btn outline">GitHub / Bericht</a>
+          </article>
+
+          <article class="project-card">
+            <h3>Simulation von Ionentransport (Python)</h3>
+            <p>Kleines Programm zur Modellierung des Ionentransports in Kathodenmaterialien mit Python und Matplotlib.</p>
+            <ul>
+              <li>Implementierung einfacher Diffusionsmodelle</li>
+              <li>Datenvisualisierung</li>
+            </ul>
+            <a href="#" class="btn outline">Code ansehen</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills">
+        <h2>Skills</h2>
+
+        <div class="skill-category">
+          <h3>Sprachen</h3>
+          <ul>
+            <li>Deutsch (Muttersprache)</li>
+            <li>Englisch (Fortgeschritten)</li>
+            <li>Latein (Kleines Latinum)</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Programmiersprachen</h3>
+          <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>GDScript</li>
+            <li>LaTeX</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Instrumente</h3>
+          <ul>
+            <li>Klavier</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Weitere Kenntnisse</h3>
+          <ul>
+            <li>Chemisches Laborwissen</li>
+            <li>Experimentelle Planung</li>
+            <li>Wissenschaftliches Schreiben</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Kontakt -->
+      <section id="contact">
+        <h2>Kontakt</h2>
+        <p><strong>E-Mail:</strong> <a href="mailto:fabian.fuerst14@gmail.com">fabian.fuerst14@gmail.com</a></p>
+        <p><strong>Zweitadresse:</strong> <a href="mailto:ff2023.science@gmail.com">ff2023.science@gmail.com</a></p>
+        <p><strong>Socials:</strong> <a href="#">GitHub</a> · <a href="#">LinkedIn</a></p>
+      </section>
+    </main>
   </div>
 
-  <div class="card">
-    <h3>Skills</h3>
-    <ul>
-      <li>Java, Python, GDScript, LaTeX</li>
-      <li>Deutsch (Muttersprache), Englisch (Fortgeschritten), Latein</li>
-      <li>Klavier, Chemielabor, wissenschaftliches Arbeiten</li>
-    </ul>
-  </div>
-</div>
+  <script>
+    // Scrollspy mit IntersectionObserver
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('.navlink');
 
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelector(`nav a[href="#${id}"]`);
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          link?.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-60% 0px -40% 0px' });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+  </script>
 </body>
 </html>
