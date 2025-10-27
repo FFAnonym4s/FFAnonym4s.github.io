@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mein CV — Beispiel</title>
+  <meta name="description" content="Ein einfaches, responsives CV-Template (single-file)" />
+  <style>
+    :root{--accent:#1f6feb;--bg:#fafafa;--text:#111}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;font-size:16px;color:var(--text);background:var(--bg)}
+    .container{max-width:920px;margin:28px auto;padding:28px;background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(20,20,40,0.06);display:grid;grid-template-columns:260px 1fr;gap:28px}
+    header{display:flex;gap:16px;align-items:center}
+    .avatar{width:104px;height:104px;border-radius:12px;overflow:hidden;border:2px solid rgba(0,0,0,0.06)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    h1{margin:0;font-size:1.5rem}
+    .muted{color:#666;font-size:.95rem}
+
+    nav{position:sticky;top:20px;padding-right:6px}
+    nav ul{list-style:none;padding:0;margin:10px 0}
+    nav a{display:block;padding:8px 10px;border-radius:8px;color:var(--accent);text-decoration:none;font-weight:600}
+    nav a.active, nav a:hover{background:rgba(31,111,235,0.08)}
+
+    main{padding:6px 0}
+    section{margin-bottom:18px}
+    section h2{margin:6px 0 10px;font-size:1.05rem}
+    .meta{font-size:.95rem;color:#444}
+    .list{margin:8px 0;padding-left:18px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:#f1f6ff;padding:6px 10px;border-radius:999px;font-size:.9rem;color:var(--accent);border:1px solid rgba(31,111,235,0.08)}
+
+    .project{border-left:3px solid rgba(0,0,0,0.06);padding:8px 12px;margin:8px 0;border-radius:6px}
+
+    .actions{display:flex;gap:8px;margin-top:10px}
+    .btn{background:var(--accent);color:white;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
+    .outline{background:transparent;border:1px solid rgba(0,0,0,0.08);color:var(--text)}
+
+    /* responsive */
+    @media (max-width:880px){.container{grid-template-columns:1fr;padding:18px}.avatar{width:84px;height:84px}}
+
+    /* print */
+    @media print{
+      body{background:white}
+      .container{box-shadow:none;border-radius:0}
+      nav{display:none}
+      .actions{display:none}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside>
+      <header>
+        <div class="avatar"><img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Avatar"></div>
+        <div>
+          <h1>Dein Name</h1>
+          <div class="muted">Fachgebiet · Stadt, Land</div>
+          <div class="muted">E‑Mail · Telefon</div>
+        </div>
+      </header>
+
+      <nav aria-label="Inhaltsnavigation">
+        <ul>
+          <li><a href="#about" class="navlink active">Über mich</a></li>
+          <li><a href="#education" class="navlink">Ausbildung</a></li>
+          <li><a href="#work" class="navlink">Berufserfahrung</a></li>
+          <li><a href="#projects" class="navlink">Projekte</a></li>
+          <li><a href="#skills" class="navlink">Skills</a></li>
+          <li><a href="#contact" class="navlink">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="margin-top:14px">
+        <div class="muted">Download</div>
+        <div class="actions">
+          <a class="btn" id="printBtn">Drucken/PDF</a>
+          <a class="btn outline" href="#contact">Kontakt</a>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <section id="about">
+        <h2>Über mich</h2>
+        <p class="meta">Kurzbeschreibung: Wer du bist, Schwerpunkte, was dich motiviert. 2–4 Sätze.</p>
+      </section>
+
+      <section id="education">
+        <h2>Ausbildung</h2>
+        <div class="project">
+          <strong>Master / Bachelor in XY</strong>
+          <div class="muted">Universität — Zeitraum</div>
+          <p>Kurze Beschreibung, relevante Kurse, Abschlussarbeit.</p>
+        </div>
+      </section>
+
+      <section id="work">
+        <h2>Berufserfahrung</h2>
+        <div class="project">
+          <strong>Position — Firma</strong>
+          <div class="muted">Zeitraum · Ort</div>
+          <ul class="list">
+            <li>Verantwortlichkeit oder Erreichtes</li>
+            <li>Tooling / Technologien</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projekte</h2>
+        <div class="project">
+          <strong>Projektname</strong>
+          <div class="muted">Link: <a href="#">GitHub / Seite</a></div>
+          <p>Kurzbeschreibung — technische Highlights.</p>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+          <span class="chip">JavaScript</span>
+          <span class="chip">HTML & CSS</span>
+          <span class="chip">React</span>
+          <span class="chip">Python</span>
+          <span class="chip">LaTeX</span>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Kontakt</h2>
+        <p class="meta">E‑Mail: <a href="mailto:dein@example.com">dein@example.com</a></p>
+        <p class="meta">LinkedIn · GitHub · Webseite</p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // einfache Scrollspy + smooth scroll
+    document.querySelectorAll('a.navlink').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        document.querySelectorAll('a.navlink').forEach(x=>x.classList.remove('active'));
+        a.classList.add('active');
+        const target = document.querySelector(a.getAttribute('href'));
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    // Druck-Button
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+
+    // optional: aktiviere active state beim scrollen
+    const sections = Array.from(document.querySelectorAll('main section'));
+    window.addEventListener('scroll', ()=>{
+      const top = window.scrollY + 80;
+      let current = sections[0].id;
+      for(const s of sections){
+        if(s.offsetTop <= top) current = s.id;
+      }
+      document.querySelectorAll('a.navlink').forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#'+current));
+    });
+  </script>
+</body>
+</html>
