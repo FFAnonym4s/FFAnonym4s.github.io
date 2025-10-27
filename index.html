@@ -3,65 +3,225 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fabian Fürst - Student in Louisenlund</title>
-  <meta name="description" content="Ein einfaches, responsives CV-Template (single-file)" />
+  <title>Fabian Fürst – Schüler & Chemieinteressierter in Louisenlund</title>
+  <meta name="description" content="Persönliches Portfolio und Lebenslauf von Fabian Fürst, Schüler an der Stiftung Louisenlund mit Fokus auf Chemie und Materialwissenschaften." />
+  <meta name="author" content="Fabian Fürst" />
+
   <style>
-    :root{--accent:#1f6feb;--bg:#fafafa;--text:#111}
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;font-size:16px;color:var(--text);background:var(--bg)}
-    .container{max-width:920px;margin:28px auto;padding:28px;background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(20,20,40,0.06);display:grid;grid-template-columns:260px 1fr;gap:28px}
-    header{display:flex;gap:16px;align-items:center}
-    .avatar{width:104px;height:104px;border-radius:12px;overflow:hidden;border:2px solid rgba(0,0,0,0.06)}
-    .avatar img{width:100%;height:100%;object-fit:cover}
-    h1{margin:0;font-size:1.5rem}
-    .muted{color:#666;font-size:.95rem}
-
-    nav{position:sticky;top:20px;padding-right:6px}
-    nav ul{list-style:none;padding:0;margin:10px 0}
-    nav a{display:block;padding:8px 10px;border-radius:8px;color:var(--accent);text-decoration:none;font-weight:600}
-    nav a.active, nav a:hover{background:rgba(31,111,235,0.08)}
-
-    main{padding:6px 0}
-    section{margin-bottom:18px}
-    section h2{margin:6px 0 10px;font-size:1.05rem}
-    .meta{font-size:.95rem;color:#444}
-    .list{margin:8px 0;padding-left:18px}
-
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{background:#f1f6ff;padding:6px 10px;border-radius:999px;font-size:.9rem;color:var(--accent);border:1px solid rgba(31,111,235,0.08)}
-
-    .project{border-left:3px solid rgba(0,0,0,0.06);padding:8px 12px;margin:8px 0;border-radius:6px}
-
-    .actions{display:flex;gap:8px;margin-top:10px}
-    .btn{background:var(--accent);color:white;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
-    .outline{background:transparent;border:1px solid rgba(0,0,0,0.08);color:var(--text)}
-
-    /* responsive */
-    @media (max-width:880px){.container{grid-template-columns:1fr;padding:18px}.avatar{width:84px;height:84px}}
-
-    /* print */
-    @media print{
-      body{background:white}
-      .container{box-shadow:none;border-radius:0}
-      nav{display:none}
-      .actions{display:none}
+    :root {
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --bg: #f9fafb;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
     }
 
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --accent: #60a5fa;
+        --accent-light: #1e3a8a;
+        --bg: #111827;
+        --text: #f3f4f6;
+        --muted: #9ca3af;
+        --card: #1f2937;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 32px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      transition: background 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent-light);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav {
+      margin-top: 24px;
+      position: sticky;
+      top: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav a.active, nav a:hover {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    main section {
+      margin-bottom: 32px;
+    }
+
+    section h2 {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 1.2rem;
+      border-bottom: 2px solid var(--accent-light);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .project, .education-item {
+      background: var(--bg);
+      padding: 14px 18px;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      margin-top: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .project:hover, .education-item:hover {
+      transform: translateX(4px);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 8px;
+      transition: opacity 0.3s;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      header {
+        flex-direction: row;
+        text-align: left;
+      }
+      nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      nav {
+        position: static;
+      }
+    }
+
+    /* print */
+    @media print {
+      nav, .btn {
+        display: none;
+      }
+      body {
+        background: white;
+        color: black;
+      }
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <aside>
       <header>
-        <div class="avatar"><img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Avatar"></div>
+        <div class="avatar">
+          <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Porträt von Fabian Fürst">
+        </div>
         <div>
           <h1>Fabian Fürst</h1>
-          <div class="muted">Anorganische Chemie: Kathodenaktivmaterialdesign · Güby, Deutschland</div>
-          <div class="muted">fabian.fuerst14@gmail.com · Telefon</div>
+          <div class="muted">Anorganische Chemie · Stiftung Louisenlund · Schleswig-Holstein</div>
+          <div class="muted"><a href="mailto:fabian.fuerst14@gmail.com">fabian.fuerst14@gmail.com</a></div>
         </div>
       </header>
 
-      <nav aria-label="Inhaltsnavigation">
+      <nav aria-label="Hauptnavigation">
         <ul>
           <li><a href="#about" class="navlink active">Über mich</a></li>
           <li><a href="#education" class="navlink">Ausbildung</a></li>
@@ -71,105 +231,81 @@
         </ul>
       </nav>
 
-      <div style="margin-top:14px">
-        <div class="muted">Download</div>
-        <div class="actions">
-          <a class="btn" id="printBtn">Drucken/PDF</a>
-          <a class="btn outline" href="#contact">Kontakt</a>
-        </div>
-      </div>
+      <a class="btn" id="printBtn">Als PDF speichern</a>
     </aside>
+
     <main>
       <section id="about">
         <h2>Über mich</h2>
-        <p class="meta"> Mein Name ist Fabian Fürst. Ich bin Schüler an der Stiftung Louisenlund in Schleswig-Holstein, seit 2023.
-        </p>
+        <p>Ich bin <strong>Fabian Fürst</strong>, Schüler an der Stiftung Louisenlund in Schleswig-Holstein. 
+        Ich interessiere mich für <strong>Anorganische Chemie</strong>, insbesondere für die Entwicklung von Kathodenaktivmaterialien für Akkumulatoren. 
+        Forschung, Strukturverständnis und innovative Materialchemie begeistern mich besonders.</p>
       </section>
-      <section id="education"> 
+
+      <section id="education">
         <h2>Ausbildung</h2>
-        <div class="project">
-          <strong>Mittlerer Schulabschluss (MSA)</strong>
-          <div class="muted">Stiftung Louisenlund - 2023</div>
-          <p>Notendurchschnitt von 2,46 mit einer Abschlussarbeit zum Thema Schwarze Löcher.</p>
+        <div class="education-item">
+          <strong>Mittlerer Schulabschluss (MSA)</strong><br>
+          <span class="muted">Stiftung Louisenlund – 2023</span>
+          <p>Abschluss mit einem Durchschnitt von 2,46. Abschlussarbeit zum Thema <em>„Schwarze Löcher“</em>.</p>
         </div>
       </section>
+
       <section id="projects">
         <h2>Projekte</h2>
         <div class="project">
-          <strong>Peroxidische Natrium-Alumo-Silikate als Kathodenaktivmaterial für Alkali-Ionen-Akkumulatoren</strong>
-          <div class="muted">Link: <a href="#">GitHub / Seite</a></div>
-          <p>Kurzbeschreibung — technische Highlights.</p>
+          <strong>Peroxidische Natrium-Alumo-Silikate als Kathodenaktivmaterial</strong>
+          <p>Untersuchung neuer Materialien für Alkali-Ionen-Akkumulatoren. Fokus auf Peroxidbindung und Leitfähigkeit.</p>
         </div>
         <div class="project">
-          <strong>Peroxidbildende Bisalze auf Basis von Sulfat und Phosphat sowie Metallfluoride, als  Kathodenaktivmaterial für Hybrid-Ionen-Akkumulatoren</strong>
-          <div class="muted">Link: <a href="#">GitHub / Seite</a></div>
-          <p>Kurzbeschreibung — technische Highlights.</p>
-        </div>
-        <div class="project">
-          <strong></strong>
-          <div class="muted">Link: <a href="#">GitHub / Seite</a></div>
-          <p>Kurzbeschreibung — technische Highlights.</p>
+          <strong>Peroxidbildende Bisalze auf Basis von Sulfat und Phosphat</strong>
+          <p>Forschung zu Mischsalzen und Metallfluoriden als Aktivmaterialien für Hybrid-Ionen-Systeme.</p>
         </div>
       </section>
+
       <section id="skills">
         <h2>Skills</h2>
-        <ul style="list-style-type: square;">
-          <div class="skills">
-            <div class="Sprachen">
-              <li class="muted">Englisch (schriftlich Fortgeschritten | sprachlich kommunikationsfähig; 3-12)</li>
-              <li class="muted">Deutsch (Muttersprache)</li>
-              <li class="muted">Latein (kleines Latinum, 7-11)</li>
-            </div>
-            <div class="Programmiersprachen">
-              <li class="muted">Java</li>
-              <li class="muted">GDScript</li>
-              <li class="muted">Python</li>
-              <li class="muted">LaTeX</li>
-            </div>
-  
-            <div class="Chemie">
-            </div>
-            <div class="Instrumente">
-              <li class="muted">Klavier</li>
-            </div>
-          </div>
-        </ul>
+        <div class="skills">
+          <span class="chip">Deutsch (Muttersprache)</span>
+          <span class="chip">Englisch (Fortgeschritten)</span>
+          <span class="chip">Latein (kleines Latinum)</span>
+          <span class="chip">Java</span>
+          <span class="chip">Python</span>
+          <span class="chip">GDScript</span>
+          <span class="chip">LaTeX</span>
+          <span class="chip">Chemisches Laborwissen</span>
+          <span class="chip">Klavier</span>
+        </div>
       </section>
 
       <section id="contact">
         <h2>Kontakt</h2>
-        <p class="meta">E‑Mail: <a href="mailto:fabian.fuerst14@gmail.com">fabian.fuerst14@gmail.com</a></p>
-        <p class="meta">E‑Mail: <a href="mailto:ff2023.science@gmail.com">ff2023.science@gmail.com</a></p>
-        <p class="meta">LinkedIn · GitHub · Webseite</p>
+        <p><strong>E-Mail:</strong> <a href="mailto:fabian.fuerst14@gmail.com">fabian.fuerst14@gmail.com</a></p>
+        <p><strong>Zweitadresse:</strong> <a href="mailto:ff2023.science@gmail.com">ff2023.science@gmail.com</a></p>
+        <p><strong>Socials:</strong> <a href="#">GitHub</a> · <a href="#">LinkedIn</a></p>
       </section>
     </main>
   </div>
 
   <script>
-    // einfache Scrollspy + smooth scroll
-    document.querySelectorAll('a.navlink').forEach(a=>{
-      a.addEventListener('click', e=>{
-        e.preventDefault();
-        document.querySelectorAll('a.navlink').forEach(x=>x.classList.remove('active'));
-        a.classList.add('active');
-        const target = document.querySelector(a.getAttribute('href'));
-        target.scrollIntoView({behavior:'smooth',block:'start'});
+    // Scrollspy mit IntersectionObserver
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('.navlink');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelector(`nav a[href="#${id}"]`);
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          link?.classList.add('active');
+        }
       });
-    });
+    }, { rootMargin: '-60% 0px -40% 0px' });
 
-    // Druck-Button
-    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+    sections.forEach(sec => observer.observe(sec));
 
-    // optional: aktiviere active state beim scrollen
-    const sections = Array.from(document.querySelectorAll('main section'));
-    window.addEventListener('scroll', ()=>{
-      const top = window.scrollY + 80;
-      let current = sections[0].id;
-      for(const s of sections){
-        if(s.offsetTop <= top) current = s.id;
-      }
-      document.querySelectorAll('a.navlink').forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#'+current));
-    });
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
   </script>
 </body>
 </html>
